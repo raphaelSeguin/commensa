@@ -11,15 +11,15 @@ var usersRouter = require('./routes/users');
 
 var dbURL = 'mongodb://localhost:27017/';
 
-mongoose.connect(dbURL)
-    .catch( err => console.log(err.message));
+// mongoose.connect(dbURL)
+//     .catch( err => console.log(err.message));
 
-var db = mongoose.connection;
+// var db = mongoose.connection;
 
-db.on('error', err => console.log('db connection error :') );
-db.once('open', function() {
-    console.log('connected successfully to db');
-});
+// db.on('error', err => console.log('db connection error :') );
+// db.once('open', function() {
+//     console.log('connected successfully to db');
+// });
 
 var app = express();
 
