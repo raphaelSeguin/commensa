@@ -12,6 +12,5 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.0.1"
-  },
-  "jshintConfig": "esversion: 6"
+  }
 }
