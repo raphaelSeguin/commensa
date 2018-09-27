@@ -10,8 +10,8 @@ router.get('/API', function(req, res, next) {
 
 if ( process.env.NODE_ENV === 'production' ) {
   router.use( express.static( path.join( __dirname, '../client/build')));
-  router.get('/', function(req, res, next) {
-    res.sendFile( path.join(__dirname, '../client/build/index.html'));
+  router.get('/', function(req, res) {
+    res.sendFile( path.join(__dirname, '../client/build', 'index.html'));
   });
 }
 
