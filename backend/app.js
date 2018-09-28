@@ -32,10 +32,13 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')))
+  app.use(express.static(path.join(__dirname, '../client/build')));
   app.get('*', function(req, res) {
-      res.sendFile(path.join(__dirname, '../client/build', 'index.html'))
-  })
+      res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  });
+  app.get('/blabla', function(req, res) {
+      res.send('ouai je suis là patron');
+  });
 }
 
 // catch 404 and forward to error handler
