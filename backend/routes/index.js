@@ -8,4 +8,8 @@ router.get('/API', function(req, res, next) {
     }.bind(null, req, res), 2000);
 });
 
+router.get('/check', function(req,res) {
+    res.sendFile( path.join(__dirname, '../../client/coucou' ));
+});
+
 module.exports = router;
