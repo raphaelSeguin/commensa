@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
-import './App.css';
 
 import Form from './components/Form';
 import Login from './components/Login';
@@ -25,9 +24,10 @@ class App extends Component {
               <div className="top-bar-left">
                 <ul className="menu">
                   <li className="menu-text">Commensa</li>
-                  <li><a href="/login">login</a></li>
                   <li><a href="/welcome">welcome</a></li>
-                  <li><a href="/api">API call</a></li>
+                  <li><a href="/login">login</a></li>
+                  <li><a href="/form">form</a></li>
+                  <li><a href="/result">result</a></li>
                 </ul>
               </div>
               <div className="top-bar-right">
@@ -46,8 +46,7 @@ class App extends Component {
                 <div className="cell">
                   <Route exact path="/" component={() => 
                     <div>
-                      <p>Welcome to commensa, please log in.</p>
-                      <quote>We're born alone, we die alone, let's eat together.</quote>
+                      <p>We're born alone, we die alone, let's eat together.</p>
                     </div>
                   } />
                 </div>
