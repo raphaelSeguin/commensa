@@ -1,0 +1,43 @@
+
+
+.random-music {
+    border: 6px solid black;
+    width: 172px;
+    height: 92px;
+    display: block;
+    margin: 100px auto;
+    div {
+        background-color: #fff;
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        margin: 0;
+        padding: 0;
+    }
+    .play-button {
+        clip-path: polygon(25% 25%, 75% 50%, 25% 75%);
+    }
+    .pause-button {
+        clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+    }
+    .next-button {
+        clip-path: polygon(25% 25%, 50% 50%, 50% 25%, 75% 50%, 50% 75%, 50% 50%, 25% 75%);
+    }
+    .loading-button {
+        clip-path: circle(25% at 50% 50%);
+        animation-name: loading-anim;
+        animation-duration: 1000ms;
+        animation-iteration-count: infinite;
+        
+    }
+    .play-button,
+    .pause-button,
+    .next-button,
+    .loading-button {
+        background-color: black;
+    }
+    @keyframes loading-anim {
+        0% {clip-path: circle(25% at 50% 50%);}
+        50% {clip-path: circle(20% at 50% 50%);}
+    }
+}
