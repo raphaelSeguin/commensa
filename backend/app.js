@@ -20,12 +20,11 @@ const oauthFacebook = require('./routes/oauth-facebook');
 const oauthGoogle = require('./routes/oauth-google');
 const oauthLinkedin = require('./routes/oauth-linkedin');
 const oauthGithub = require('./routes/oauth-github');
+
 const cors = require('./routes/cors');
 const login = require('./routes/login');
 
 const production = process.env.NODE_ENV === 'production';
-
-let OAUTH_FACEBOOK_ID = 'azeproaze';
 
 require('./configLoader').spawn(global);
 
@@ -49,9 +48,9 @@ passport.deserializeUser( function(userId, done) {
 const FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.use(new FacebookStrategy({
-        clientID: '267652670480586',
-        clientSecret: '4fec30192d36c911298395f07b31ed1b',
-        callbackURL: "http://localhost:3001/oauth/facebook/callback"
+        clientID: OAUTH_FACEBOOK_ID,
+        clientSecret: OAUTH_FACEBOOK_SECRET,
+        callbackURL: OAUTH_FACEBOOK_CALLBACK
     },
     function(accessToken, refreshToken, profile, cb) {
         User.findOrCreate(
@@ -66,9 +65,9 @@ passport.use(new FacebookStrategy({
 const GitHubStrategy = require('passport-github').Strategy;
 
 passport.use(new GitHubStrategy({
-    clientID: '6539a7feba83a4bde236',
-    clientSecret: '1fe8ce7e23b704897cef6de7a19b7c2f5142532d',
-    callbackURL: "http://localhost:3001/oauth/github/callback"
+    clientID: OAUTH_GITHUB_ID,
+    clientSecret: OAUTH_GITHUB_SECRET,
+    callbackURL: OAUTH_GITHUB_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
     console.log(profile);
