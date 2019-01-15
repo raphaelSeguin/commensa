@@ -6,9 +6,12 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: String,
   email: String,
-  photo: String,
-  age: String,
-  githubId: String
+  favoriteFood: String,
+  latitude: Number,
+  longitude: Number,
+  lastConnexion: Date,
+  githubId: String,
+  photo: String
 });
 
 const User = db.connection.model('user', UserSchema);

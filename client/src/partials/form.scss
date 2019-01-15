@@ -1,0 +1,14 @@
+.cform {
+    width: 50%;
+    min-width: 350px;
+    margin: 40px auto;
+    padding: 10px;
+}
+
+input:valid {
+    background-color: #efe;
+}
+
+input:invalid {
+    background-color: #fee;
+}

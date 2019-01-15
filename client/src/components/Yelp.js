@@ -1,17 +1,31 @@
 import React from 'react';
 
 export default (props) => {
-    const request = new XMLHttpRequest();
-    const {latitude, longitude, search} = props;
-    request.open('GET', `/cors/yelp?latitude=${latitude}&longitude=${longitude}&search=${search}`);
-    request.onload = function() {
-        if (request.status === 200) {
-            console.log(JSON.parse(request.responseText));
-        }
-    }
-    request.send();
+    const {results} = props;
     return (
-        <div>YELP</div>
+        <div>
+            {
+                results ? 
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>name</th>
+                                <th>food</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {results.map( (r, i) => 
+                                <tr key={i}>
+                                    <td><a href={r.url} target="_blank">{r.name}</a></td>
+                                    <td>description</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                    :
+                    <p>no results yet</p>
+            }
+        </div>
     )
 }
 

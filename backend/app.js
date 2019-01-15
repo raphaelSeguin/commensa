@@ -21,6 +21,7 @@ const oauthGoogle = require('./routes/oauth-google');
 const oauthLinkedin = require('./routes/oauth-linkedin');
 const oauthGithub = require('./routes/oauth-github');
 const cors = require('./routes/cors');
+const login = require('./routes/login');
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -90,6 +91,7 @@ passport.use(new GitHubStrategy({
 const sessionOptions = {
   secret: "bon appetit",
   resave: true,
+  // secure: true,
   saveUninitialized: true,
   store: new MongoStore({
     mongooseConnection: db
@@ -103,6 +105,7 @@ app.use( session(sessionOptions) );
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(cookieParser());
 
 app.use(passport.initialize());
@@ -116,6 +119,7 @@ app.use('/oauth/', oauthLinkedin);
 app.use('/oauth/', oauthGithub);
 
 app.use('/cors/', cors);
+app.use('/login', login);
 
 // in production only : serves react app and assets
 if (production) {

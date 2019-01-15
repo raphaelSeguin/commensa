@@ -1,4 +1,7 @@
 const {random, sin, PI} = Math;
+
+console.log('myVar is equal to ', myVar);
+
 function initMap() {
     navigator.geolocation.getCurrentPosition( (p) => {
         const otherRandomLocations = Array(10).fill(p.coords).map(loc => 

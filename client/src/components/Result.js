@@ -1,18 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
+import GoogleMap from './GoogleMap';
+import Yelp from './Yelp';
+import RandomMusic from './RandomMusic';
 
-class Result extends Component {
-    constructor() {
-        super();
-        this.state = {
-            value: null
-        };
-    }
-
-    render() {
-        return (
-            <div>Results</div>
-        )
-    }
+export default ({infos}) => {
+    const {user, restaurantsAround} = infos;
+    return (
+        <div>
+            <GoogleMap user={user} restaurantsAround={restaurantsAround}></GoogleMap>
+            <Yelp user={user} results={restaurantsAround}></Yelp>
+            <RandomMusic></RandomMusic>
+        </div>
+    )
 }
-
-export default Result;

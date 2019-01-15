@@ -1,11 +1,29 @@
 import React, {Component} from 'react';
 
 class GoogleMap extends Component {
-    constructor() {
-        super();
-        this.state = {};
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true
+        };
+        this.userLatitude = parseFloat(this.props.user.latitude);
+        this.userLongitude = parseFloat(this.props.user.longitude);
+
     }
+
+    // passer les variables à gmScript :
+    // insérer un script avant gmScript avec toutes les variables
+
     componentDidMount () {
+
+        const variables = document.createElement("script");
+        variables.textContent = `this.userGMInfos = {
+            latitude: ${this.userLatitude},
+            longitude: ${this.userLongitude}
+        };`;
+
+        document.body.appendChild(variables);
+
         const scriptInit = document.createElement("script");
         scriptInit.src = "/cors/gmscript/";
         document.body.appendChild(scriptInit);

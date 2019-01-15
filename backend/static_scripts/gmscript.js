@@ -1,4 +1,5 @@
 const {random, sin, PI} = Math;
+
 function initMap() {
     navigator.geolocation.getCurrentPosition( (p) => {
         const otherRandomLocations = Array(10).fill(p.coords).map(loc => 
@@ -8,12 +9,13 @@ function initMap() {
             document.getElementById('map'), 
             {
                 center: {
-                    lat: p.coords.latitude, 
-                    lng: p.coords.longitude
+                    lat: userGMInfos.latitude, 
+                    lng: userGMInfos.longitude
                 },
-                zoom: 12
+                zoom: 13
             }
         );
+
         const markers = otherRandomLocations.map( loc => {
             new google.maps.Marker({
                 position: loc,
@@ -22,6 +24,7 @@ function initMap() {
                 label: 'gouu'
             });
         });
+
     })
 }
 
