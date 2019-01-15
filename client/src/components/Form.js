@@ -53,7 +53,7 @@ class Form extends Component {
     render() {
         return (
             <div className="cform">
-                <form onSubmit={this.submitForm} method="POST">
+                <form onSubmit={this.submitForm}>
                     <h3 className="text-center">Tell me who you are...</h3>
                     <label htmlFor="name">Name<small> (only letters and numbers)</small></label>
                     <input ref="name" type="text" name="name" id="name-input" minLength="3" pattern="[\w\s]+" required/>
