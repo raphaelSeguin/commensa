@@ -4,11 +4,10 @@ import Yelp from './Yelp';
 import RandomMusic from './RandomMusic';
 
 export default ({infos}) => {
-    const {user, restaurantsAround} = infos;
     return (
         <div>
-            <GoogleMap user={user} restaurantsAround={restaurantsAround}></GoogleMap>
-            <Yelp user={user} results={restaurantsAround}></Yelp>
+            <GoogleMap infos={infos} ></GoogleMap>
+            <Yelp  infos={infos} ></Yelp>
             <RandomMusic></RandomMusic>
         </div>
     )

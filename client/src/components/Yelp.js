@@ -1,11 +1,11 @@
 import React from 'react';
 
 export default (props) => {
-    const {results} = props;
+    const {restaurantsAround} = props;
     return (
         <div>
             {
-                results ? 
+                restaurantsAround ? 
                     <table>
                         <thead>
                             <tr>
@@ -14,7 +14,7 @@ export default (props) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {results.map( (r, i) => 
+                            {restaurantsAround.map( (r, i) => 
                                 <tr key={i}>
                                     <td><a href={r.url} target="_blank">{r.name}</a></td>
                                     <td>description</td>

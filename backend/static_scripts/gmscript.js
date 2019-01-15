@@ -2,29 +2,33 @@ const {random, sin, PI} = Math;
 
 function initMap() {
     navigator.geolocation.getCurrentPosition( (p) => {
-        const otherRandomLocations = Array(10).fill(p.coords).map(loc => 
-            makeRandomLocationAround(loc.latitude, loc.longitude, 0.01)
-        );
+
+        // ajouter une flèche rouge pour la position de l'utilisateur
+
         const map = new google.maps.Map(
             document.getElementById('map'), 
             {
                 center: {
-                    lat: userGMInfos.latitude, 
-                    lng: userGMInfos.longitude
+                    lat: results.user.latitude, 
+                    lng: results.user.longitude
                 },
                 zoom: 13
             }
         );
+        
+        // ajouter une autre icone pour la position des restaurants
 
-        const markers = otherRandomLocations.map( loc => {
+        const markers = results.restaurantsAround.map( resto => {
             new google.maps.Marker({
-                position: loc,
+                position: {
+                    lat: resto.latitude,
+                    lng: resto.longitude
+                },
                 map: map,
-                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-                label: 'gouu'
+                label: resto.name,
+                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
             });
         });
-
     })
 }
 
