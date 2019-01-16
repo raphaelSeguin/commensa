@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Redirect} from 'react-router-dom';
+import {HashRouter, Route, Redirect} from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Form from './components/Form';
@@ -8,6 +8,7 @@ import Welcome from './components/Welcome';
 import RandomMusic from './components/RandomMusic';
 import GoogleMap from './components/GoogleMap';
 import Yelp from './components/Yelp';
+import About from './components/About';
 
 class App extends Component {
     constructor(props) {
@@ -21,10 +22,10 @@ class App extends Component {
 
     render() {
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div className="App">
                     <div className="grid-container full">
-                        <Navbar props={this.state} />
+                        <Navbar state={this.state} />
                         <div className="grid-container">
                             <div className="grid-x grid-margin-x">
                                 <div className="cell center-x">
@@ -34,6 +35,7 @@ class App extends Component {
                                         <Redirect to={{pathname: '/welcome'}} /> }
                                     />
                                     <Route path="/welcome" component={Welcome} />
+                                    <Route path="/about" component={About} />
                                     <Route path="/form" render={() => <Form infosCallback={this.infosCallback} />} />
                                     <Route path="/result" component={() => <Result infos={this.state} />} />
                                     <Route path="/randommusic" component={RandomMusic} />
@@ -44,7 +46,7 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }

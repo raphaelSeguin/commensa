@@ -96,30 +96,33 @@ export default class RandomMusic extends Component {
     render() {
       const {loading, playing} = this.state;
       return (
-        <div className="random-music">
-            { loading ?
-            <div>
-                <div className="loading-button"></div>
-            </div>
-            : playing ?
-            <div
-                onClick={() => this.stop() }>
-                <div className="pause-button"></div>
-            </div> 
-            : 
-            <div 
-                onClick={() => {
-                    this.getMusic(this.randomString(3));
-                }}>
-                <div className="play-button"></div>
-            </div>
-            }
-            
-            <div 
-                onClick={ () => {
-                    this.getMusic(this.randomString(3));
-                }} >
-                <div className="next-button"></div>
+          <div>
+              <h5>Slow Radiow</h5>
+              <div className="random-music">
+                { loading ?
+                <div>
+                    <div className="loading-button"></div>
+                </div>
+                : playing ?
+                <div
+                    onClick={() => this.stop() }>
+                    <div className="pause-button"></div>
+                </div> 
+                : 
+                <div 
+                    onClick={() => {
+                        this.getMusic(this.randomString(3));
+                    }}>
+                    <div className="play-button"></div>
+                </div>
+                }
+                
+                <div 
+                    onClick={ () => {
+                        this.getMusic(this.randomString(3));
+                    }} >
+                    <div className="next-button"></div>
+                </div>
             </div>
         </div>
       )

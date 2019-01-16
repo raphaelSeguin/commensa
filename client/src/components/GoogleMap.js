@@ -25,11 +25,7 @@ class GoogleMap extends Component {
         document.body.appendChild(script);
     }
     render() {
-        return (
-            <div>
-                <div id="map" style={{height: '400px', width: '600px'}}></div>
-            </div>
-        )
+        return <div id="map"></div>
     }
 }
 

@@ -28,7 +28,7 @@ const production = process.env.NODE_ENV === 'production';
 
 require('./configLoader').spawn(global);
 
-const dbURL = 'mongodb://raph:Raph1979@ds018848.mlab.com:18848/capstone';
+const dbURL = DB_MLAB_URL;
 
 // db connection
 mongoose.connect(dbURL, { useNewUrlParser: true }).catch( err => console.log(err.message));
@@ -126,6 +126,8 @@ if (production) {
   app.get('*', function(req, res) {
       res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
   });
+} else {
+  app.use(express.static(path.join(__dirname, '../client/public/assets')));
 }
 
 // catch 404 and forward to error handler
